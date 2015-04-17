@@ -13,7 +13,7 @@ public class ProgrammLogic {
             try(BufferedReader br = new BufferedReader(new FileReader("Couples.txt"))) {
                 String line = br.readLine();
 
-                while (line != null) {
+                while (line != null && !line.equals("")) {
                     String[] couple = line.split("=");
                     couples.put(couple[0], couple[1]);
                     line = br.readLine();
@@ -225,5 +225,13 @@ public class ProgrammLogic {
             sortedMap.put(entry.getKey(), entry.getValue());
         }
         return sortedMap;
+    }
+
+    public void showAll() {
+        System.out.println("File contains couples: Key  =>  Value");
+        for (Map.Entry<String, String> entry : couples.entrySet()) {
+            System.out.println("| " + entry.getKey() + " | " + entry.getValue() + "|");
+        }
+        if (couples.isEmpty()) System.out.println("Couples is empty !!!");
     }
 }

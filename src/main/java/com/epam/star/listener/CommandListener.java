@@ -55,6 +55,8 @@ public class CommandListener {
                 break;
             case "filter":  progLog.filter();
                 break;
+            case "show":  progLog.showAll();
+                break;
             default: System.out.println("This command not exist!");
         }
     }
